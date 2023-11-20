@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  padding: 100px;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+}
+ul li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.testOne {
+  position: absolute;
+  left: 0px;
+  transform: translateX(var(--left));
+  background-color: red;
+  height: var(--height);
+  width: 400px;
+  transition: all 0.4s;
+}
+
+.at_first_height {
+  --height: 200px;
+  --left:100px;
+}
+
+.height_change_one {
+  --height: 300px;
+}
+
+.height_change_two {
+  --height: 100px;
+}
+
+.height_change_three {
+  --height: 400px;
+}
+
+.height_change_four {
+  --height: 100px;
+}
+
+.height_change_five {
+  --height: 500px;
+}/*# sourceMappingURL=styles.css.map */
