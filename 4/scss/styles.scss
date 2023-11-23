@@ -1,0 +1,114 @@
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+@font-face {
+    font-family: "reg";
+    src: url("../fonts/Karla-Regular.ttf");
+}
+
+body{
+    background-color: #212329;
+}
+
+nav{
+    background-color: #4a5667;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    .nav--item{
+        padding: 2px;
+        text-decoration: none;
+        display: inline-block;
+        font-family: "reg";
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.498);
+    }
+    .divider{
+        color:#64748b;
+    }
+    .navbar--contents--container{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+}
+
+.navbar--contents--container{
+    --left: 0px;
+    --height: 0px;
+    --width: 640px;
+    --itemBgColor: hsla(0,0%,100%,100%);
+    position: absolute;
+    left: 0px;
+    top: 60px;
+    opacity: 0;
+    transition-delay: 0.2s;
+    #mask{
+        border-radius: 4px;
+        background-color: var(--itemBgColor);
+        position: absolute;
+        top: 0px;
+        left: var(--left);
+        overflow: hidden;
+        width: 640px;
+        height: var(--height);
+        transition: all 0.3s ease-in-out;
+        transition-delay: 0.2s;
+    }
+    .navbar--contents--item--container{
+        position: absolute;
+        left: calc(var(--left) * -1);
+        transition: all 0.3s ease-in-out;
+        transition-delay: 0.2s;
+        .item{
+            opacity: 0;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 640px;
+            font-family: "reg";
+            background-color: var(--itemBgColor);
+            transition: all 0.2s;
+            transition-delay: 0.2s;
+            // transition-delay: 0.3s;
+        }
+        .heading--container{
+            padding: 0.5rem 1.5rem;
+            background-color: hsla(214.29,31.82%,91.37%,100%);
+            h1{
+                font-family: "reg";
+                font-weight: 600;
+                font-size: 18px;
+                color: #2b2839;
+            }
+        }
+        .moduleList--container{
+            padding: 0.5rem 1.5rem;
+            .list{
+                display: flex;
+                justify-content: space-between;
+                padding: 0.25rem;
+                .subheading{
+                    font-size: 16px;
+                    color: hsla(225.93,70.73%,40.2%,100%);
+                }
+                .list--details{
+                    font-size: 12px;
+                    color: hsla(215.29,19.32%,34.51%,100%);
+                    display: flex;
+                    gap: 6px;
+                }
+            }
+        }
+    }
+}
+
+.removeTransition{
+    transition: none !important;
+}
