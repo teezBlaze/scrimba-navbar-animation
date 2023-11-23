@@ -3,6 +3,7 @@ const allBoxElements = document.querySelectorAll(".navbar--contents--item--conta
 const parentElement = document.getElementById("parent")
 const maskElement = document.getElementById("mask")
 let timeOut
+let parentVisibleTimeOut
 const opacityRemoveTime = 600
 
 
@@ -37,13 +38,15 @@ window.addEventListener("load", () => {
             }
 
             currentBoxItem.style.setProperty("opacity", "1")
-            parentElement.style.setProperty("opacity", "1")
             allBoxElements.forEach(boxItem => {
                 if(currentBoxItem != boxItem){
                     boxItem.style.setProperty("opacity", "0")
                 }
             })
             parentElement.style.setProperty("--height", `${currentBoxItemProperties.height}px`)
+            parentVisibleTimeOut = setTimeout(() => {
+                parentElement.style.setProperty("opacity", "1")
+            }, 300);
         })
 
         // When mouse leaves a nav item
@@ -51,6 +54,7 @@ window.addEventListener("load", () => {
             timeOut = setTimeout(() => {
                 parentElement.style.setProperty("opacity", "0")
             }, opacityRemoveTime)
+            clearTimeout(parentVisibleTimeOut)
         })
     })
 
